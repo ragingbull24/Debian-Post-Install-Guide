@@ -155,14 +155,16 @@ flatpak install flathub com.google.Chrome
 ## Random utilities install
 
 * `htop`: General system overview
-* `fastfetch`: General system specifications
+* `neofetch`: General system specifications (Debian 12 or older)
+* `fastfetch`: General system specifications (Debian 13 or newer)
 * `lm-sensors`: General temperature overview
 * `cmatrix`: Matrix style terminal screensaver
 * `cava`: Cross-Platform Audio Visualizer for alsa, pulse, pipewire, etc.
 * `gimp`: GNU Image Manipulation Program, free and open source image editing
 * `krita`: Professional free and open source program for painters and graphic designers
+* Adjust accordingly:
 ```
-sudo apt install htop fastfetch lm-sensors cmatrix cava gimp
+sudo apt install htop fastfetch lm-sensors cmatrix cava gimp krita
 ```
 
 ## VSCodium install
