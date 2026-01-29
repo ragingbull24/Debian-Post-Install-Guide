@@ -157,10 +157,12 @@ flatpak install flathub com.google.Chrome
 * `htop`: General system overview
 * `fastfetch`: General system specifications
 * `lm-sensors`: General temperature overview
-* `cmatrix`: Matrix style screensaver
-* `cava`: Cross-Platform Audio Visualizer
+* `cmatrix`: Matrix style terminal screensaver
+* `cava`: Cross-Platform Audio Visualizer for alsa, pulse, pipewire, etc.
+* `gimp`: GNU Image Manipulation Program, free and open source image editing
+* `krita`: Professional free and open source program for painters and graphic designers
 ```
-sudo apt install htop fastfetch lm-sensors cmatrix cava
+sudo apt install htop fastfetch lm-sensors cmatrix cava gimp
 ```
 
 ## VSCodium install
@@ -188,6 +190,44 @@ echo 'deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/vscodium-archive-keyri
 ```
 sudo apt update && sudo apt install codium
 ```
+
+## OpenModelica install
+
+* To install OpenModelica in Debian you can use the official open source binaries from https://openmodelica.org/download/download-linux/
+* Add the GPG signing key of the repository:
+```
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+curl -fsSL https://build.openmodelica.org/apt/openmodelica.asc | \
+  sudo gpg --dearmor -o /usr/share/keyrings/openmodelica-keyring.gpg
+```
+* Add the repository:
+* For Debian 13:
+```
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/openmodelica-keyring.gpg] \
+  https://build.openmodelica.org/apt \
+  trixie \
+  stable" | sudo tee /etc/apt/sources.list.d/openmodelica.list
+```
+* For Debian 12:
+```
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/openmodelica-keyring.gpg] \
+  https://build.openmodelica.org/apt \
+  bookworm \
+  stable" | sudo tee /etc/apt/sources.list.d/openmodelica.list
+```
+* For auto detect operating system:
+```
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/openmodelica-keyring.gpg] \
+  https://build.openmodelica.org/apt \
+  $(cat /etc/os-release | grep "\(UBUNTU\\|DEBIAN\\|VERSION\)_CODENAME" | sort | cut -d= -f 2 | head -1) \
+  stable" | sudo tee /etc/apt/sources.list.d/openmodelica.list
+```
+* Update and install `OpenModelica`
+```
+sudo apt update && sudo apt install openmodelica
+```
+* For more configurations refer to the official website
 
 # Upcoming
 
