@@ -1,6 +1,6 @@
 # Debian Post Install Guide
 
-Note: This guide assumes the user has been able to realize a clean installation of the Debian GNU/Linux operating system in any of its current maintained versions: Debian 11, Debian 12, Debian 13. This guide will help you setup the non-free/propietary repositories, firewall, drivers, multimedia codecs, flatpak and flathub repositories, software backports (under review), and make gaming optimizations using Steam and the Lutris and Heroic game launchers (upcoming).
+Note: This guide assumes the user has been able to realize a clean installation of the Debian GNU/Linux operating system in any of its current maintained versions: Debian 11, Debian 12, Debian 13. This guide will help you setup the non-free/proprietary repositories, firewall, drivers, multimedia codecs, browsers, flatpak and flathub repositories, software backports (under review), and make gaming optimizations using Steam and the Lutris and Heroic game launchers (upcoming).
 
 Note 2: A secong guide pertaining how to execute Microsoft Windows applications is under development.
 
@@ -108,6 +108,32 @@ sudo apt install plasma-discover-backend-flatpak -y
 sudo apt install gnome-software-plugin-flatpak -y
 ```
 * `sudo reboot`
+
+## Google Chrome browser install (APT)
+
+* This method allows to update Google Chrome with `apt update`
+* Download and install the Google signing key
+```
+wget -qO- https://dl.google.com/linux/linux_signing_key.pub \
+  | gpg --dearmor \
+  | sudo tee /usr/share/keyrings/google-chrome.gpg >/dev/null
+```
+* Add the Google Chrome `apt` repository
+```
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] \
+https://dl.google.com/linux/chrome/deb/ stable main" \
+| sudo tee /etc/apt/sources.list.d/google-chrome.list
+```
+* Update repositories and install Google Chrome
+```
+sudo apt update
+sudo apt install google-chrome-stable
+```
+* You can update Google Chrome simply using:
+```
+sudo apt update && sudo apt upgrade
+```
+* Taken from https://www.google.com/linuxrepositories/
 
 ## Removing Firefox ESR and installing flatpak browsers
 
