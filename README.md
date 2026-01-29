@@ -61,7 +61,7 @@ sudo ufw status
 
 ## Intel drivers install
 
-* To install non-free, propietary Intel drivers for Intel UHD Graphics cards you may install the following packages:
+* To install non-free, proprietary Intel drivers for Intel UHD Graphics cards you may install the following packages:
 ```
 sudo apt install firmware-linux intel-media-va-driver-non-free vainfo
 ```
