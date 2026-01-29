@@ -91,7 +91,7 @@ sudo apt install libavcodec-extra vlc
 
 ## Google Chrome browser install (APT)
 
-* This method allows to update Google Chrome with `apt update`, if you prefer to use a flatpak (containerized) browser proceed below
+* This method allows to update Google Chrome with `apt update`, if you prefer to use a flatpak (containerized) browser, omit this step and proceed below
 * Download and install the Google signing key:
 ```
 wget -qO- https://dl.google.com/linux/linux_signing_key.pub \
