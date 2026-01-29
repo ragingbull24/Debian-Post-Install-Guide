@@ -82,7 +82,7 @@ sudo apt install nvidia-driver nvidia-kernel-dkms
 * Check driver after reboot with:
 * `nvidia-smi`
 
-## Multimedia Codecs
+## Multimedia codecs install
 
 * Install multimedia codecs to stream videos and other media content:
 ```
@@ -151,6 +151,17 @@ flatpak install flathub com.google.Chrome
 ```
 
 # Miscellanea
+
+## Random utilities install
+
+* `htop`: General system overview
+* `fastfetch`: General system specifications
+* `lm-sensors`: General temperature overview
+* `cmatrix`: Matrix style screensaver
+* `cava`: Cross-Platform Audio Visualizer
+```
+sudo apt install htop fastfetch lm-sensors cmatrix cava
+```
 
 ## VSCodium install
 
