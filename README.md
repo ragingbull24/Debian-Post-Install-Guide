@@ -89,6 +89,32 @@ sudo apt install nvidia-driver nvidia-kernel-dkms
 sudo apt install libavcodec-extra vlc
 ```
 
+## Google Chrome browser install (APT)
+
+* This method allows to update Google Chrome with `apt update`, if you prefer to use a flatpak (containerized) browser proceed below
+* Download and install the Google signing key:
+```
+wget -qO- https://dl.google.com/linux/linux_signing_key.pub \
+  | gpg --dearmor \
+  | sudo tee /usr/share/keyrings/google-chrome.gpg >/dev/null
+```
+* Add the Google Chrome `apt` repository:
+```
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] \
+https://dl.google.com/linux/chrome/deb/ stable main" \
+| sudo tee /etc/apt/sources.list.d/google-chrome.list
+```
+* Update repositories and install Google Chrome:
+```
+sudo apt update
+sudo apt install google-chrome-stable
+```
+* You can update Google Chrome simply using:
+```
+sudo apt update && sudo apt upgrade
+```
+* Taken from https://www.google.com/linuxrepositories/
+
 ## Flatpak and flathub repositories install
 
 * To install flatpak applications you must install flatpak first:
@@ -108,32 +134,6 @@ sudo apt install plasma-discover-backend-flatpak -y
 sudo apt install gnome-software-plugin-flatpak -y
 ```
 * `sudo reboot`
-
-## Google Chrome browser install (APT)
-
-* This method allows to update Google Chrome with `apt update`
-* Download and install the Google signing key
-```
-wget -qO- https://dl.google.com/linux/linux_signing_key.pub \
-  | gpg --dearmor \
-  | sudo tee /usr/share/keyrings/google-chrome.gpg >/dev/null
-```
-* Add the Google Chrome `apt` repository
-```
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] \
-https://dl.google.com/linux/chrome/deb/ stable main" \
-| sudo tee /etc/apt/sources.list.d/google-chrome.list
-```
-* Update repositories and install Google Chrome
-```
-sudo apt update
-sudo apt install google-chrome-stable
-```
-* You can update Google Chrome simply using:
-```
-sudo apt update && sudo apt upgrade
-```
-* Taken from https://www.google.com/linuxrepositories/
 
 ## Removing Firefox ESR and installing flatpak browsers
 
