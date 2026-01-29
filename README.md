@@ -24,7 +24,7 @@ You can use `Rufus`, `balenaEtcher` or `dd` to burn the ISO file into a USB acco
 ## Non-free repositories install
 
 * The default installation of Debian stable comes with free repositories
-* To add non-free repositories to use propietary software, open your console/terminal and direct to:
+* To add non-free repositories to use proprietary software, open your console/terminal and direct to:
 ```
 sudo nano /etc/apt/sources.list
 ```
