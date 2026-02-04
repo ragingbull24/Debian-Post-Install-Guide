@@ -106,8 +106,7 @@ https://dl.google.com/linux/chrome/deb/ stable main" \
 ```
 * Update repositories and install Google Chrome:
 ```
-sudo apt update
-sudo apt install google-chrome-stable
+sudo apt update && sudo apt install google-chrome-stable
 ```
 * You can update Google Chrome simply using:
 ```
