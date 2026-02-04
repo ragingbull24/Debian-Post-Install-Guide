@@ -15,7 +15,7 @@ You can use `Rufus`, `balenaEtcher` or `dd` to burn the ISO file into a USB acco
 * `balenaEtcher` > `Windows` `macOS` `Linux`
 * `dd` > `Linux`
 
-## Debian Post Installation Guide - Main:
+## Debian Post Installation Guide - Main
 
 * Things to do after installing Debian 11, aka `Bullseye`
 * Things to do after installing Debian 12, aka `Bookworm`
