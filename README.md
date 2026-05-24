@@ -230,10 +230,52 @@ sudo apt update && sudo apt install openmodelica
 ```
 * For more configurations refer to the official website
 
-# Upcoming
-
 ## Backports install
+
+* `ON DEVELOPMENT`
+
 ## Gaming installations
+
+* Installing Vulkan support:
+```
+sudo apt install libvulkan1 vulkan-tools mesa-vulkan-drivers nvidia-vulkan-common nvidia-driver-libs:i386
+```
+* Installing i386 architecture support:
+```
+sudo dpkg --add-architecture i386
+sudo apt update
+```
+* Install i386 packages:
+```
+sudo apt install \
+libgl1-nvidia-glx:i386 \
+libvulkan1:i386 \
+mesa-vulkan-drivers:i386
+```
+* `sudo reboot`
+
 ## Steam install
+
+* Install Steam:
+```
+sudo apt install steam
+```
+* Environment variables for Nvidia GPU usage:
+```
+__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only __GL_THREADED_OPTIMIZATIONS=1 mangohud %command%
+```
+
+## Utilities install
+
+* Install gaming utilities with:
+```
+sudo apt install gamemode mangohud goverlay wine winetricks gamescope
+```
+
 ## Lutris install
+
+* `ON DEVELOPMENT`
+
 ## Heroic install
+
+* `ON DEVELOPMENT`
