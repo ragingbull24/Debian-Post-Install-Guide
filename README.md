@@ -1,10 +1,6 @@
 # Debian Post Install Guide
 
-Note: This guide assumes the user has been able to realize a clean installation of the Debian GNU/Linux operating system in any of its current maintained versions: Debian 11, Debian 12, Debian 13. This guide will help you setup the non-free/proprietary repositories, firewall, drivers, multimedia codecs, browsers, flatpak and flathub repositories, software backports (under review), and make gaming optimizations using Steam and the Lutris and Heroic game launchers (upcoming).
-
-Note 2: A secong guide pertaining how to execute Microsoft Windows applications is under development.
-
-Note 3: ISO burning guides are under development.
+Note: This guide assumes the user has been able to realize a clean installation of the Debian GNU/Linux operating system in any of its current maintained versions: Debian 11, Debian 12, Debian 13. This guide will help you setup the non-free/proprietary repositories, firewall, drivers, multimedia codecs, browsers, flatpak and flathub repositories, and Steam gaming packages.
 
 You can find the Live and Net installation ISO of D11, D12, D13 and other Debian versions here:
 * https://cdimage.debian.org/cdimage/archive/ > `General cdimage archive`
@@ -163,7 +159,7 @@ flatpak install flathub com.google.Chrome
 * `krita`: Professional free and open source program for painters and graphic designers
 * Adjust accordingly:
 ```
-sudo apt install htop fastfetch lm-sensors cmatrix cava gimp krita
+sudo apt install htop fastfetch lm-sensors
 ```
 
 ## VSCodium install
@@ -178,9 +174,8 @@ wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.g
 * Add the repository:
 * For Debian 13 or newer:
 ```
-wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
-    | gpg --dearmor \
-    | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+echo -e 'Types: deb\nURIs: https://download.vscodium.com/debs\nSuites: vscodium\nComponents: main\nArchitectures: amd64 arm64\nSigned-by: /usr/share/keyrings/vscodium-archive-keyring.gpg' \
+| sudo tee /etc/apt/sources.list.d/vscodium.sources
 ```
 * For Debian 12 or older:
 ```
@@ -234,48 +229,26 @@ sudo apt update && sudo apt install openmodelica
 
 * `ON DEVELOPMENT`
 
-## Gaming installations
+## Steam install
 
-* Installing Vulkan support:
-```
-sudo apt install libvulkan1 vulkan-tools mesa-vulkan-drivers nvidia-vulkan-common nvidia-driver-libs:i386
-```
 * Installing i386 architecture support:
 ```
 sudo dpkg --add-architecture i386
 sudo apt update
 ```
-* Install i386 packages:
-```
-sudo apt install \
-libgl1-nvidia-glx:i386 \
-libvulkan1:i386 \
-mesa-vulkan-drivers:i386
-```
-* `sudo reboot`
-
-## Steam install
-
 * Install Steam:
 ```
-sudo apt install steam
+sudo apt install steam-installer
 ```
-* Environment variables for Nvidia GPU usage:
+* Install i386 packages:
 ```
-__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only __GL_THREADED_OPTIMIZATIONS=1 mangohud %command%
+sudo apt install mesa-vulkan-drivers libglx-mesa0:i386 mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386
 ```
-
-## Utilities install
-
-* Install gaming utilities with:
+* Optional: install gaming utilities:
 ```
 sudo apt install gamemode mangohud goverlay wine winetricks gamescope
 ```
-
-## Lutris install
-
-* `ON DEVELOPMENT`
-
-## Heroic install
-
-* `ON DEVELOPMENT`
+* Optional: environment variables for Nvidia GPU usage:
+```
+__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only __GL_THREADED_OPTIMIZATIONS=1 mangohud %command%
+```
